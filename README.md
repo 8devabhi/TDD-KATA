@@ -28,11 +28,16 @@ This template provides a minimal setup to get React working in Vite with HMR and
 ![Two number passed scenario - version2](public/images/Sum-of-2-number-passed-without-breaking-previous-test-case.png)
 
 - Unknown/multiple amount of numbers
+  
 ![Unknown/multiple amount of numbers failed scenario](public/images/Unknown-amount-of-numbers-failed.png)
 ![Unknown/multiple amount of numbers passed scenario](public/images/Unknown-amount-of-numbers-passed.png)
 
 - Handling new lines between numbers
+  
 ![Handling new lines between numbers failed scenario](public/images/Supporting-new-lines-as-delimeter-failed.png)
 ![Handling new lines between numbers failed scenario](public/images/Supporting-new-lines-as-delimeter-passed.png)
+
+- Handling Custom delimiter other than comma and new lines
+![Handling Custom delimiter passed](public/images/Custom-delimeters-passed.png)
 
 
