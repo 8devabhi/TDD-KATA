@@ -13,3 +13,8 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - single number should return itself
 ![single number should return itself failed](public/images/single-number-should-return-itself-failing.png)
 ![single number should return itself passed](public/images/single-number-should-return-itself-passed.png)
+
+- Two number scenario
+![Two number failed scenario](public/images/sum-of-2-numbers-failed.png)
+![Two number passed scenario](public/images/sum-of-2-numbers-passed.png)
+### However the test case got passed but it broke the single number test case and developer got a notice about,hence the code can be refactored.This demonstrates the glory of test driven development.Later we will see example of passing the test case without failing the earlier ones.
