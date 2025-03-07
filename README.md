@@ -31,4 +31,8 @@ This template provides a minimal setup to get React working in Vite with HMR and
 ![Unknown/multiple amount of numbers failed scenario](public/images/Unknown-amount-of-numbers-failed.png)
 ![Unknown/multiple amount of numbers passed scenario](public/images/Unknown-amount-of-numbers-passed.png)
 
+- Handling new lines between numbers
+![Handling new lines between numbers failed scenario](public/images/Supporting-new-lines-as-delimeter-failed.png)
+![Handling new lines between numbers failed scenario](public/images/Supporting-new-lines-as-delimeter-passed.png)
+
 
