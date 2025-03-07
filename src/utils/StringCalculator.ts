@@ -101,6 +101,8 @@ export class StringCalculator {
    * @returns The total sum of the numbers.
    */
   private calculateSum(numbers: number[]): number {
-    return numbers.reduce((sum, num) => sum + num, 0);
+    return numbers
+      .filter(num => num <= 1000)
+      .reduce((sum, num) => sum + num, 0);
   }
 }
