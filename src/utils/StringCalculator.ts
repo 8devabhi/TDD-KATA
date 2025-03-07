@@ -68,28 +68,57 @@ export class StringCalculator {
       StringCalculator.CUSTOM_DELIMITER_PATTERN
     );
 
-    if (match) {
-      const customDelimiter = match[1];
-      const numberString = numeralString.replace(
-        StringCalculator.CUSTOM_DELIMITER_PATTERN,
-        ""
-      );
-      // Check if there are multiple delimiters in [delim1][delim2] format
-      const multipleDelimiterMatch = customDelimiter.match(/\[([^\]]+)]/g);
-      if (multipleDelimiterMatch) {
-        // Extract delimiters from [delim1][delim2] and escape special regex characters
-        const delimiterList = multipleDelimiterMatch.map((d) =>
-          d.slice(1, -1).replace(/[-/\\^$*+?.()|{}]/g, "\\$&")
-        );
-        return { delimiter: new RegExp(delimiterList.join("|")), numberString };
-      }
-      return { delimiter: new RegExp(customDelimiter), numberString };
+    if (!match) {
+      return {
+        delimiter: StringCalculator.DEFAULT_DELIMITER_REGEX,
+        numberString: numeralString,
+      };
     }
 
+    const { delimiterPattern, numberString } = this.parseCustomDelimiters(
+      match[1],
+      numeralString
+    );
+    return { delimiter: new RegExp(delimiterPattern), numberString };
+  }
+  /**
+   * Parses custom delimiters from the input string and returns the delimiter pattern
+   * along with the cleaned number string.
+   */
+  private parseCustomDelimiters(
+    delimiters: string,
+    numeralString: string
+  ): { delimiterPattern: string; numberString: string } {
+    const multipleDelimiterMatch = delimiters.match(/\[([^\]]+)]/g);
+
+    if (multipleDelimiterMatch) {
+      // Extract delimiters from [delim1][delim2] and escape special regex characters
+      const delimiterList = multipleDelimiterMatch.map((d) =>
+        this.escapeRegex(d.slice(1, -1))
+      );
+      return {
+        delimiterPattern: delimiterList.join("|"),
+        numberString: numeralString.replace(
+          StringCalculator.CUSTOM_DELIMITER_PATTERN,
+          ""
+        ),
+      };
+    }
+
+    // Single-character delimiter case
     return {
-      delimiter: StringCalculator.DEFAULT_DELIMITER_REGEX,
-      numberString: numeralString,
+      delimiterPattern: this.escapeRegex(delimiters),
+      numberString: numeralString.replace(
+        StringCalculator.CUSTOM_DELIMITER_PATTERN,
+        ""
+      ),
     };
+  }
+  /**
+   * Escapes special regex characters in delimiters.
+   */
+  private escapeRegex(delimiter: string): string {
+    return delimiter.replace(/[-/\\^$*+?.()|{}]/g, "\\$&");
   }
   /**
    * Checks if the given array contains negative numbers and throws an error if found.
