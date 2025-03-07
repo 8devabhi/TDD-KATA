@@ -7,6 +7,10 @@ export class StringCalculator {
     if (!inputString) return 0;
     const { delimiter, numberString } = this.extractDelimiter(inputString);
     const numberList = this.convertNumeralStringToArray(numberString, delimiter);
+    const negativeNumbers = numberList.filter(num => num < 0);
+    if (negativeNumbers.length > 0) {
+      throw new Error(`Negatives not allowed: ${negativeNumbers.join(", ")}`);
+    }
     return this.calculateSum(numberList);
   }
   private convertNumeralStringToArray(numeralString: string, delimiter: RegExp): number[] {
