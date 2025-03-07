@@ -47,5 +47,6 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 - Adding a Method to count number of times the add function gets called
 ![Getting count of add function calls failed](public/images/Called-count-failed.png)
+![Getting count of add function calls passed](public/images/Called-count-passed.png)
 
 
