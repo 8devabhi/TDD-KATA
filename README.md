@@ -50,6 +50,12 @@ This template provides a minimal setup to get React working in Vite with HMR and
 ![Getting count of add function calls failed](public/images/Called-count-failed.png)
 ![Getting count of add function calls passed](public/images/Called-count-passed.png)
 
--Numbers bigger than 1000 should be ignored
+- Numbers bigger than 1000 should be ignored
+
 ![Numbers bigger than 1000 should be ignored failed](public/images/Numbers-bigger-than-thousand-should-be-ignored-failed.png)
 ![Numbers bigger than 1000 should be ignored passed](public/images/Numbers-bigger-than-thousand-should-be-ignored-Passed.png)
+
+- Allowing multiple custom delimiters
+
+![Allowing multiple custom delimiters failed](public/images/Supporting-multiple-custom-delimiters-failed.png)
+![Allowing multiple custom delimiters passed](public/images/Supporting-multiple-custom-delimiters-passed.png)
