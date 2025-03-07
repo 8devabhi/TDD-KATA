@@ -40,4 +40,9 @@ This template provides a minimal setup to get React working in Vite with HMR and
 - Handling Custom delimiter other than comma and new lines
 ![Handling Custom delimiter passed](public/images/Custom-delimeters-passed.png)
 
+- Handling of Negative numbers
+  
+![Handling of Negative numbers failed](public/images/Negatives-are-not-allowed-failed.png)
+![Handling of Negative numbers passed](public/images/Negatives-are-not-allowed-passed.png)
+
 
