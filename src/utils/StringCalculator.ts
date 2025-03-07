@@ -2,13 +2,18 @@ export class StringCalculator {
 
   private static readonly DEFAULT_DELIMITER_REGEX = /,|\n/;
   private static readonly CUSTOM_DELIMITER_PATTERN = /^\/\/(.+)\n/;
+  private callCount = 0;
 
   add(inputString: string): number {
+    this.callCount++;
     if (!inputString) return 0;
     const { delimiter, numberString } = this.extractDelimiter(inputString);
     const numberList = this.convertNumeralStringToArray(numberString, delimiter);
     this.throwIfNegative(numberList);
     return this.calculateSum(numberList);
+  }
+  public getCalledCount(): number {
+    return this.callCount;
   }
   private convertNumeralStringToArray(numeralString: string, delimiter: RegExp): number[] {
     return numeralString.split(delimiter).map(Number);
