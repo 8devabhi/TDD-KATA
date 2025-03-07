@@ -20,4 +20,4 @@ This template provides a minimal setup to get React working in Vite with HMR and
 ### However the test case got passed but it broke the single number test case and developer got a notice about,hence the code can be refactored.This demonstrates the glory of test driven development.Later we will see example of passing the test case without failing the earlier ones via refactoring the code.
 
 - Two number scenario without Failing the previous ones
-! [Two number passed scenario - version2](public/images/Sum-of-2-number-passed-without-breaking-previous-test-case.png)
+![Two number passed scenario - version2](public/images/Sum-of-2-number-passed-without-breaking-previous-test-case.png)
