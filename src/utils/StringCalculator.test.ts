@@ -35,4 +35,12 @@ describe("StringCalculator", () => {
   test("should throw exception for negative numbers", () => {
     expect(() => calculator.add("1,-2,3,-4")).toThrow("Negatives not allowed: -2, -4");
   });
+
+  test("should return the number of times add() was called", () => {
+    calculator.add("1,2");
+    calculator.add("3,4");
+    calculator.add("5,6");
+  
+    expect(calculator.getCalledCount()).toBe(3);
+  });
 });
