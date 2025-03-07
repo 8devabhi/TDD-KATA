@@ -23,7 +23,7 @@ export class StringCalculator {
       delimiter
     );
     this.throwIfNegative(numberList);
-    return this.calculateSum(numberList);
+    return this.calculateSum(this.filterValidNumbers(numberList));
   }
    /**
    * Returns the number of times `add()` method has been called.
@@ -95,14 +95,20 @@ export class StringCalculator {
     }
   }
   /**
+   * Filters out numbers greater than 1000.
+   * @param numbers - The list of numbers extracted from the input string.
+   * @returns A new array excluding numbers greater than 1000.
+   */
+  private filterValidNumbers(numbers: number[]): number[] {
+    return numbers.filter(num => num <= 1000);
+  }
+  /**
    * Calculates the sum of an array of numbers.
    *
    * @param numbers - The array of numbers to sum up.
    * @returns The total sum of the numbers.
    */
   private calculateSum(numbers: number[]): number {
-    return numbers
-      .filter(num => num <= 1000)
-      .reduce((sum, num) => sum + num, 0);
+    return numbers.reduce((sum, num) => sum + num, 0);
   }
 }
