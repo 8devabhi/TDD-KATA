@@ -7,10 +7,7 @@ export class StringCalculator {
     if (!inputString) return 0;
     const { delimiter, numberString } = this.extractDelimiter(inputString);
     const numberList = this.convertNumeralStringToArray(numberString, delimiter);
-    const negativeNumbers = numberList.filter(num => num < 0);
-    if (negativeNumbers.length > 0) {
-      throw new Error(`Negatives not allowed: ${negativeNumbers.join(", ")}`);
-    }
+    this.throwIfNegative(numberList);
     return this.calculateSum(numberList);
   }
   private convertNumeralStringToArray(numeralString: string, delimiter: RegExp): number[] {
@@ -26,6 +23,12 @@ export class StringCalculator {
     }
 
     return { delimiter: StringCalculator.DEFAULT_DELIMITER_REGEX, numberString: numeralString };
+  }
+  private throwIfNegative(numberArray: number[]): void {
+    const negativeNumbers = numberArray.filter(num => num < 0);
+    if (negativeNumbers.length > 0) {
+      throw new Error(`Negatives not allowed: ${negativeNumbers.join(", ")}`);
+    }
   }
   private calculateSum(numbers: number[]): number {
     return numbers.reduce((sum, num) => sum + num, 0);
