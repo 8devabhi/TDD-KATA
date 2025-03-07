@@ -46,7 +46,10 @@ This template provides a minimal setup to get React working in Vite with HMR and
 ![Handling of Negative numbers passed](public/images/Negatives-are-not-allowed-passed.png)
 
 - Adding a Method to count number of times the add function gets called
+
 ![Getting count of add function calls failed](public/images/Called-count-failed.png)
 ![Getting count of add function calls passed](public/images/Called-count-passed.png)
 
-
+-Numbers bigger than 1000 should be ignored
+![Numbers bigger than 1000 should be ignored failed](public/images/Numbers-bigger-than-thousand-should-be-ignored-failed.png)
+![Numbers bigger than 1000 should be ignored passed](public/images/Numbers-bigger-than-thousand-should-be-ignored-Passed.png)
