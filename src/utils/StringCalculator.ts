@@ -25,7 +25,7 @@ export class StringCalculator {
     this.throwIfNegative(numberList);
     return this.calculateSum(this.filterValidNumbers(numberList));
   }
-   /**
+  /**
    * Returns the number of times `add()` method has been called.
    *
    * @returns The total count of `add()` method invocations.
@@ -74,6 +74,15 @@ export class StringCalculator {
         StringCalculator.CUSTOM_DELIMITER_PATTERN,
         ""
       );
+      // Check if there are multiple delimiters in [delim1][delim2] format
+      const multipleDelimiterMatch = customDelimiter.match(/\[([^\]]+)]/g);
+      if (multipleDelimiterMatch) {
+        // Extract delimiters from [delim1][delim2] and escape special regex characters
+        const delimiterList = multipleDelimiterMatch.map((d) =>
+          d.slice(1, -1).replace(/[-/\\^$*+?.()|{}]/g, "\\$&")
+        );
+        return { delimiter: new RegExp(delimiterList.join("|")), numberString };
+      }
       return { delimiter: new RegExp(customDelimiter), numberString };
     }
 
@@ -100,7 +109,7 @@ export class StringCalculator {
    * @returns A new array excluding numbers greater than 1000.
    */
   private filterValidNumbers(numbers: number[]): number[] {
-    return numbers.filter(num => num <= 1000);
+    return numbers.filter((num) => num <= 1000);
   }
   /**
    * Calculates the sum of an array of numbers.
